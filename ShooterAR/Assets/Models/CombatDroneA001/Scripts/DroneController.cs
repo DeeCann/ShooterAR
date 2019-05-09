@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using ShooterAR;
 
 public enum DroneStateTypes {
 	Idle01,
