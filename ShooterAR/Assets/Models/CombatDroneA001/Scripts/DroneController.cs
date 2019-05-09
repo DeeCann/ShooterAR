@@ -101,7 +101,7 @@ public class DroneController : MonoBehaviour {
 	private void SimulateDroneExplosion() {
 		if (!droneExplosionSetup) {
 			myAnimator.enabled = false;
-			myNavMeshAgent.enabled = false;
+			//myNavMeshAgent.enabled = false;
 			gameObject.GetComponent<CapsuleCollider> ().enabled = false;
 			if (DroneModelBaseGO != null) {
 				droneTransforms = DroneModelBaseGO.GetComponentsInChildren<Transform> ();

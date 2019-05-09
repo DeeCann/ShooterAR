@@ -47,7 +47,17 @@ namespace ShooterAR
         public void FixedUpdate()
         {
             if (IsSpawned)
+            {
                 transform.Translate(fwdVector * Time.deltaTime * 120, Space.World);
+                Vector3 step = transform.forward * Time.deltaTime * ProjectileVelocity;
+                if (Physics.Raycast(transform.position, transform.forward, out hitPoint, step.magnitude * RaycastPrediction))
+                {
+                    if (hitPoint.collider.gameObject.GetComponent<DroneController>())
+                    {
+                        hitPoint.collider.gameObject.GetComponent<DroneController>().TakeHit(10, hitPoint.point);
+                    }
+                }
+            }
 
             if (Vector3.Distance(transform.position, _spawnPoint) > 500)
                 DeSpawn();
