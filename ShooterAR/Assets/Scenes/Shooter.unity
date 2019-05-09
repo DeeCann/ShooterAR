@@ -775,7 +775,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonFlameAC: {fileID: 1827362945}
+  shootSound: {fileID: 482527145}
   isRight: 1
+--- !u!82 &482527145 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82730577119040116, guid: bcf28b009cc10437ab008672382f3140,
+    type: 3}
+  m_PrefabInstance: {fileID: 1561732365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &511552223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2042073217916099010, guid: 15e3c87d0f427443195ec4b311f8b5e0,
@@ -1188,7 +1195,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonFlameAC: {fileID: 8315614783943835321}
+  shootSound: {fileID: 661129126}
   isRight: 0
+--- !u!82 &661129126 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82730577119040116, guid: bcf28b009cc10437ab008672382f3140,
+    type: 3}
+  m_PrefabInstance: {fileID: 514137777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &732053692
 GameObject:
   m_ObjectHideFlags: 0
