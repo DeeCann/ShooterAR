@@ -18,17 +18,20 @@ namespace ShooterAR
 
         private Animator canonAnimator;
         private IEnumerator delayRightCannonShootCorutine;
+        private bool unlockBullets = false;
 
         private void OnEnable()
         {
             FireWeapon.StartShoot += Shoot;
             FireWeapon.StopShoot += Stop;
+            GroundFinding.OnStartGame += UnlockBullets;
         }
 
 		private void OnDisable()
 		{
             FireWeapon.StartShoot -= Shoot;
             FireWeapon.StopShoot += Stop;
+            GroundFinding.OnStartGame -= UnlockBullets;
 		}
 
 		private void Start()
@@ -49,6 +52,9 @@ namespace ShooterAR
          **/
 		private void Shoot()
         {
+            if (!unlockBullets)
+                return;
+            
             if (!isRight)
             {
                 canonAnimator.SetBool("Shoot", true);
@@ -68,6 +74,11 @@ namespace ShooterAR
             cannonFlameAC.SetBool("Shoot", false);
             if (delayRightCannonShootCorutine != null)
                 StopCoroutine(delayRightCannonShootCorutine);
+        }
+
+        private void UnlockBullets()
+        {
+            unlockBullets = true;
         }
 
 		IEnumerator DelayRightCannonShoot() {
