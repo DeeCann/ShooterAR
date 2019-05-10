@@ -15,6 +15,8 @@ namespace ShooterAR
         [SerializeField]
         private GameObject counter;
         [SerializeField]
+        private GameObject radar;
+        [SerializeField]
         private GameObject power;
 
         private void OnEnable()
@@ -32,6 +34,7 @@ namespace ShooterAR
         private void ShowUI() {
             counter.SetActive(true);
             power.SetActive(true);
+            radar.SetActive(true);
             putPortalText.SetActive(false);
         }
 
