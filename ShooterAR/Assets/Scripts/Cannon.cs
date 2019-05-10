@@ -30,7 +30,7 @@ namespace ShooterAR
 		private void OnDisable()
 		{
             FireWeapon.StartShoot -= Shoot;
-            FireWeapon.StopShoot += Stop;
+            FireWeapon.StopShoot -= Stop;
             GroundFinding.OnStartGame -= UnlockBullets;
 		}
 

@@ -29,32 +29,14 @@ namespace ShooterAR
         private GameObject winText;
 
         private int dronesKilled = 0;
-
-        private int totalKilledInRound = 0;
+        private int numOfDrones = 0;
         private IEnumerator startSpawningCorutine;
         private IEnumerator vignietteCorutine;
-
-        public int TotalKilled
-        {
-            set
-            {
-                totalKilledInRound += value;
-                if (totalKilledInRound >= startDronesNum)
-                {
-                    startDronesNum += lvlStep;
-                    SpawnDrones();
-                }
-            }
-
-            get
-            {
-                return totalKilledInRound;
-            }
-        }
 
         private void Start()
         {
             scoreTxt.text = dronesKilled.ToString();
+            numOfDrones = transform.childCount;
         }
 
         private void OnEnable()
@@ -71,11 +53,8 @@ namespace ShooterAR
 
         private void SpawnDrones()
         {
-            if (transform.childCount < 2)
-            {
-                //winText.SetActive(true);
+            if (transform.childCount == 0)
                 return;
-            }
 
             if (startSpawningCorutine != null)
                 StopCoroutine(startSpawningCorutine);
@@ -88,6 +67,11 @@ namespace ShooterAR
         {
             dronesKilled++;
             scoreTxt.text = dronesKilled.ToString();
+            if (numOfDrones == dronesKilled)
+            {
+                winText.SetActive(true);
+                return;
+            }
             startDronesNum = Random.Range(1, 3);
             SpawnDrones();
         }
